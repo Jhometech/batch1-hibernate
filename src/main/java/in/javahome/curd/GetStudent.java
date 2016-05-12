@@ -10,6 +10,7 @@ public class GetStudent {
 		Session session = HibUtil.getSession();
 
 		Student std = session.get(Student.class, 1);
+		Student std2 = session.get(Student.class, 1);
 		
 		System.out.println(std.getName());
 		System.out.println(std.getPhone());

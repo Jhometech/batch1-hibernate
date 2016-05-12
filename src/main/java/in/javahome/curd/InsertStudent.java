@@ -6,17 +6,16 @@ import org.hibernate.Transaction;
 import in.javahome.hibernate.HibUtil;
 import in.javahome.hibernate.Student;
 
-public class MergeExample {
+public class InsertStudent {
 	public static void main(String[] args) {
 		Session session = HibUtil.getSession();
-		Student std1 = session.get(Student.class, 2);
+		Student std = new Student();
+		std.setStdId(10);
 		Transaction tx = session.beginTransaction();
-		Student std2 = new Student();
-		std2.setStdId(2);
-		std2.setName("Raghu");
-		std2.setPhone(null);
-		session.merge(std2);
-		tx.commit();
+		std.setName("Ranga");
+		std.setPhone("6666666666");
+		session.save(std);
+		session.evict(std);
+		tx.commit();// This triggers the sql queries
 	}
-
 }
