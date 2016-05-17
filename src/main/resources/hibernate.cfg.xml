@@ -11,6 +11,15 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.jdbc.batch_size">100</property>
         <mapping class="in.javahome.hibernate.Student"/>
+        
+        <mapping class="in.javahome.onetoone.Person"/>
+        
+        <mapping class="in.javahome.onetoone.Passport"/>
+        
+        
+        <mapping class="in.javahome.onetomay.Employee"/>
+        <mapping class="in.javahome.onetomay.Vehicle"/>
     </session-factory>
 </hibernate-configuration>
