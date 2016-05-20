@@ -21,5 +21,8 @@
         
         <mapping class="in.javahome.onetomay.Employee"/>
         <mapping class="in.javahome.onetomay.Vehicle"/>
+        <mapping class="in.javahome.manytomany.Author"/>
+        <mapping class="in.javahome.manytomany.Book"/>
+        
     </session-factory>
 </hibernate-configuration>

@@ -4,11 +4,15 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Table(name="EMPLOYEE_TAB")
@@ -18,7 +22,8 @@ public class Employee implements Serializable{
 	private Integer empId;
 	private String name;
 	private double salary;
-	@OneToMany
+	@OneToMany(mappedBy="emp",cascade=CascadeType.ALL)
+	@BatchSize(size=20)
 	private Set<Vehicle> vehicles = new HashSet<>();
 	public Integer getEmpId() {
 		return empId;
