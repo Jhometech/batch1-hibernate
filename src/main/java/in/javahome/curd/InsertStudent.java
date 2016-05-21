@@ -10,12 +10,11 @@ public class InsertStudent {
 	public static void main(String[] args) {
 		Session session = HibUtil.getSession();
 		Student std = new Student();
-		std.setStdId(10);
+//		std.setStdId(10);
 		Transaction tx = session.beginTransaction();
-		std.setName("Ranga");
-		std.setPhone("6666666666");
+		std.setName("Krishna");
+		std.setPhone("888888666");
 		session.save(std);
-		session.evict(std);
 		tx.commit();// This triggers the sql queries
 	}
 }

@@ -19,6 +19,9 @@ public class Author implements Serializable{
 	private String name;
 	private String email;
 	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="book_author",
+	joinColumns=@JoinColumn(name="author_id"),
+	inverseJoinColumns=@JoinColumn(name="book_id"))
 	private Set<Book> books = new HashSet<>();
 	public int getAuthorId() {
 		return authorId;
