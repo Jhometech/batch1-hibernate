@@ -8,22 +8,23 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Subselect;
 
 @Entity
 @Table(name="EMPLOYEE_TAB")
 public class Employee implements Serializable{
 	@Column(name="EMP_ID")
-	@Id
+	@Id@GeneratedValue
 	private Integer empId;
 	private String name;
 	private double salary;
-	@OneToMany(mappedBy="emp",cascade=CascadeType.ALL)
-	@BatchSize(size=20)
+	@OneToMany(mappedBy="emp",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private Set<Vehicle> vehicles = new HashSet<>();
 	public Integer getEmpId() {
 		return empId;
