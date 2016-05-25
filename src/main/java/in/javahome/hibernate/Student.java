@@ -7,19 +7,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name = "STUDENT_DETAILS")
+@NamedQueries(value = { @NamedQuery(name = "selectSQL", 
+query = "from Student")})
 public class Student implements Serializable {
 	@Column(name = "STD_ID")
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int stdId;
 	@Column(name = "STD_NAME")
 	private String name;
-	
+
 	private String phone;
 
 	public int getStdId() {

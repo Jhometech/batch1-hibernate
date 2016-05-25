@@ -13,6 +13,12 @@
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.jdbc.batch_size">100</property>
+        
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.provider_class">
+        	org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
+        
         <mapping class="in.javahome.hibernate.Student"/>
         
         <mapping class="in.javahome.onetoone.Person"/>
