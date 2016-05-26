@@ -13,12 +13,14 @@ public class SelectAll {
 		
 		Session session = HibUtil.getSession();
 		
-		Query hql = session.createQuery("from Student");
+		Query hql1 = session.createQuery("from Student");
+		Query hql2 = session.createQuery("from Student");
 		
-		List<Student> list = hql.list();
-		for (Student std: list) {
+		List<Student> list = hql1.list();
+		List<Student> list2 = hql2.list();
+		/*for (Student std: list) {
 			System.out.println("Name "+std.getName());
 			System.out.println("Phone "+std.getPhone());
-		}
+		}*/
 	}
 }

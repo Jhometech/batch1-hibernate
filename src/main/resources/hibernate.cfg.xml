@@ -14,11 +14,11 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.jdbc.batch_size">100</property>
         
-        <property name="hibernate.cache.use_second_level_cache">true</property>
-        <property name="hibernate.cache.provider_class">
-        	org.hibernate.cache.ehcache.EhCacheRegionFactory
+        <property name="hibernate.cache.region.factory_class">
+        	org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
         </property>
-        
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
         <mapping class="in.javahome.hibernate.Student"/>
         
         <mapping class="in.javahome.onetoone.Person"/>

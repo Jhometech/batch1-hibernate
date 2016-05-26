@@ -2,20 +2,21 @@ package in.javahome.hibernate;
 
 import java.io.Serializable;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name = "STUDENT_DETAILS")
-@NamedQueries(value = { @NamedQuery(name = "selectSQL", 
-query = "from Student")})
-public class Student implements Serializable {
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
+public class Student {
 	@Column(name = "STD_ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
