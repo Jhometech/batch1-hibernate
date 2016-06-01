@@ -13,9 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Subselect;
-
 @Entity
 @Table(name="EMPLOYEE_TAB")
 public class Employee implements Serializable{
@@ -24,7 +21,8 @@ public class Employee implements Serializable{
 	private Integer empId;
 	private String name;
 	private double salary;
-	@OneToMany(mappedBy="emp",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="emp",cascade=CascadeType.ALL,fetch=FetchType.EAGER
+			, orphanRemoval=true)
 	private Set<Vehicle> vehicles = new HashSet<>();
 	public Integer getEmpId() {
 		return empId;

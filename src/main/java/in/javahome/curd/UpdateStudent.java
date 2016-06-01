@@ -9,12 +9,13 @@ import in.javahome.hibernate.Student;
 public class UpdateStudent {
 	public static void main(String[] args) {
 		Session session = HibUtil.getSession();
-		Student std = session.get(Student.class, 2);
+		Student std = session.get(Student.class, 4);
 		Transaction tx = session.beginTransaction();
-		std.setName("Raghu");
-		std.setPhone("7777777777");
-		session.update(std);
+		
 		tx.commit();
+//		session.clear();
+		std.setName("Hari P Kammana");
+		std.setPhone("7777777777");
 	}
 
 }

@@ -30,6 +30,9 @@
         <mapping class="in.javahome.onetomay.Vehicle"/>
         <mapping class="in.javahome.manytomany.Author"/>
         <mapping class="in.javahome.manytomany.Book"/>
+         <mapping class="in.javahome.inheritancemapping.Payment"/>
+         <mapping class="in.javahome.inheritancemapping.DDPayment"/>
+         <mapping class="in.javahome.inheritancemapping.CardPayment"/>
         
     </session-factory>
 </hibernate-configuration>
